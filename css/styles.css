@@ -1,0 +1,282 @@
+@charset "UTF-8";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #666;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100vh;
+  background: url(/images/backgrundsbild-hangman.jpeg) no-repeat;
+  background-size: cover;
+}
+
+header {
+  flex: 0 0 auto;
+  background-color: rgb(255, 212, 212);
+  color: #000;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 4.5em;
+  text-align: center;
+}
+
+main {
+  flex: 1;
+  padding: 1.5em;
+}
+
+main:after {
+  content: "\00a0";
+  display: block;
+  margin-top: 0;
+  height: 0px;
+  visibility: hidden;
+}
+
+.first-section {
+  padding: 1.5em;
+  color: #fff;
+}
+
+.first-section p {
+  padding: 10px;
+  font-weight: 900;
+  font-size: 1.2rem;
+}
+.text-instruction {
+  display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+
+main button {
+  align-content: center;
+  justify-content: center;
+}
+
+.first-section h2 {
+  text-align: center;
+  color: #ff0707;
+  margin-bottom: 1.5em;
+}
+
+ul {
+  list-style-type: none;
+}
+
+footer {
+  background-color: silver;
+  border-top: 1px solid #666;
+  margin-top: 20px;
+  padding-top: 30px;
+  color: #fff;
+  font-size: 1.25em;
+  width: 100%;
+  flex: none;
+  text-align: center;
+}
+
+#startGameBtn {
+  font-size: 1.5em;
+}
+
+#gameBoard {
+  padding: 15px 0;
+}
+
+#letterButtons {
+  display: inline-flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#letterButtons button:not(last-child) {
+  margin: 4px 4px;
+  cursor: pointer;
+  max-width: 84px;
+  min-width: 84px;
+}
+
+#letterBoxes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#letterBoxes li {
+  list-style: none;
+}
+
+#letterBoxes input {
+  border: 1px solid #666;
+  color: #666;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5em;
+  font-weight: bold;
+  line-height: 2em;
+  margin-top: 1em;
+  padding: 20px 5px;
+  text-align: center;
+  width: 2em;
+  background-color: #fff;
+}
+#letterBoxes input:disabled {
+  background-color: #ccc;
+}
+
+#message {
+  padding-top: 20px;
+  font-size: 1.5em;
+}
+
+.btn {
+  background: #c7c7c7;
+  border-radius: 23px;
+  border: 2px solid #666;
+  display: flex;
+  width: 15em;
+  height: 4em;
+  font: inherit;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  line-height: normal;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.btn::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+.btn--stripe {
+  overflow: hidden;
+  position: relative;
+  color: red;
+}
+
+.btn--stripe:after {
+  content: "";
+  display: block;
+  height: 7px;
+  width: 100%;
+  background-image: -webkit-repeating-linear-gradient(
+    45deg,
+    #c40a0a,
+    #fff 5px,
+    transparent 2px,
+    transparent 5px
+  );
+  background-image: repeating-linear-gradient(
+    45deg,
+    #a31111,
+    #fff 5px,
+    transparent 2px,
+    transparent 5px
+  );
+  backface-visibility: hidden;
+  border-top: 1px solid #666;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-size: 7px 7px;
+}
+
+.btn--stripe:disabled {
+  background-color: #999;
+  color: #fff;
+  border-color: #666;
+}
+
+.btn--stripe:hover {
+  background-color: #420101;
+  color: #fff;
+  border-color: #000;
+}
+
+.btn--stripe:disabled:after,
+.btn--stripe:hover:after {
+  background-image: -webkit-repeating-linear-gradient(
+    45deg,
+    #fff,
+    #fff 1px,
+    transparent 2px,
+    transparent 5px
+  );
+  background-image: repeating-linear-gradient(
+    45deg,
+    #fff,
+    #fff 1px,
+    transparent 2px,
+    transparent 5px
+  );
+  border-top: 1px solid #000;
+}
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 26px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.popup-content {
+  text-align: center;
+  width: 15em;
+  height: 7em;
+}
+
+.popup button {
+  margin-top: 10px;
+  padding: 10px;
+  width: 7rem;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.popup button:hover {
+  background-color: #45a049;
+}
+
+footer {
+  background-color: rgb(255, 212, 212);
+  color: black;
+}
+
+@media screen and (max-width: 768px) {
+  header h1 {
+    font-size: 3em;
+  }
+
+  main {
+    padding: 1em;
+  }
+
+  #letterButtons button:not(:last-child) {
+    margin: 4px 4px;
+    max-width: 100%;
+    min-width: 100%;
+  }
+}
